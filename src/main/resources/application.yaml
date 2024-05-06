@@ -1,0 +1,33 @@
+server:
+  port: ${PORT:8080}
+  shutdown: graceful
+
+spring:
+  application:
+    name: developer-assistance
+  mustache:
+    check-template-location: false
+  threads:
+    virtual:
+      enabled: true
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: gpt-3.5-turbo # Feel free to use gpt-4, but I have my own budget
+    vectorstore:
+      qdrant:
+        host: ${QDRANT_HOST:localhost}
+        port: ${QDRANT_PORT:6334} # gRPC port
+        api-key: ${QDRANT_API_KEY} # Use for Qdrant Cloud
+        collection-name: spring-boot-document
+        use-tls: true # Required when connecting to Qdrant Cloud
+
+logging:
+  level:
+    org.atmosphere: warn
+
+# Launch the default browser when starting the application in development mode
+vaadin:
+  launch-browser: true
