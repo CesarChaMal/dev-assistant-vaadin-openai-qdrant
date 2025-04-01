@@ -22,7 +22,8 @@ spring:
         port: ${QDRANT_PORT:6334} # gRPC port
         api-key: ${QDRANT_API_KEY} # Use for Qdrant Cloud
         collection-name: spring-boot-document
-        use-tls: true # Required when connecting to Qdrant Cloud
+#        use-tls: true # Required when connecting to Qdrant Cloud
+        use-tls: false
 
 logging:
   level:
